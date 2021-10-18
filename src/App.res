@@ -1,27 +1,17 @@
-%%raw(`
-import logo from './logo.svg';
-import './App.css';
+@module("./logo.svg") external logo: string = "default"
+@module("./App.css") external _a: string = "default"
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+@react.component
+let default = () => {
+  <div className="App">
+    <header className="App-header">
+      <img src={logo} className="App-logo" alt="logo" />
+      <p>
+        {React.string("Edit ")}
+        <code> {React.string("src/App.js")} </code>
+        {React.string(" and save to reload.")}
+      </p>
+      <LearnReact />
+    </header>
+  </div>
 }
-
-export default App;
-`)
